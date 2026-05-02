@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Banjo en Español - Inteligencia Artificial</title>
+    <title>Banjo en Español - Blog y Academia</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -32,20 +32,9 @@
         html { scroll-behavior: smooth; }
         .hero-pattern {
             background-color: #4a200e;
-            background-image: linear-gradient(rgba(30, 20, 15, 0.86), rgba(30, 20, 15, 0.86)), url('https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-image: linear-gradient(rgba(30, 20, 15, 0.8), rgba(30, 20, 15, 0.8)), url('https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-        }
-        .ai-glow {
-            box-shadow: 0 0 15px rgba(217, 119, 67, 0.3);
-            border: 1px solid rgba(217, 119, 67, 0.4);
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.5s ease-out forwards;
         }
     </style>
 </head>
@@ -55,20 +44,20 @@
     <header class="bg-white/95 backdrop-blur-sm shadow-sm fixed w-full z-50" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="window.scrollTo(0,0)">
                     <i class="fa-solid fa-guitar text-wood-600 text-3xl mr-3 transform -rotate-45"></i>
                     <span class="font-bold text-2xl text-wood-900 tracking-tight">Banjo en Español</span>
                 </div>
                 
-                <nav class="hidden md:flex space-x-6">
-                    <a href="#inicio" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Inicio</a>
-                    <a href="#metodo" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Aprender</a>
-                    <a href="#ai-tools" class="text-wood-600 font-bold">Herramientas ✨</a>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#lecciones" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Lecciones</a>
+                    <a href="#tecnica" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Técnica</a>
+                    <a href="#blog" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Blog</a>
                 </nav>
 
-                <div class="hidden md:flex items-center space-x-4">
-                    <button onclick="toggleAIChat()" class="text-wood-600 hover:bg-wood-50 px-5 py-2 rounded-full border border-wood-200 transition-all flex items-center font-medium">
-                        <i class="fa-solid fa-sparkles mr-2"></i> Asistente ✨
+                <div class="flex items-center space-x-4">
+                    <button onclick="toggleAIChat()" class="bg-wood-600 hover:bg-wood-700 text-white px-5 py-2.5 rounded-full shadow-md transition-all flex items-center font-bold text-sm">
+                        <i class="fa-solid fa-sparkles mr-2"></i> Asistente IA
                     </button>
                 </div>
             </div>
@@ -76,125 +65,142 @@
     </header>
 
     <!-- Hero Section -->
-    <section id="inicio" class="hero-pattern pt-32 pb-24 md:pt-48 md:pb-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-6 leading-tight">
-                Domina el Banjo con <br>
-                <span class="text-wood-500">Inteligencia Artificial ✨</span>
-            </h1>
-            <p class="mt-4 max-w-2xl mx-auto text-xl text-stone-300 mb-10 leading-relaxed">
-                Tu portal de Bluegrass en español ahora potenciado con Gemini para crear rutinas de estudio y resolver dudas técnicas al instante.
+    <section id="inicio" class="hero-pattern pt-32 pb-20 md:pt-48 md:pb-32 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl">
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
+                    El portal definitivo del <span class="text-wood-500 font-cursive">Banjo</span> en nuestro idioma.
+                </h1>
+                <p class="text-xl text-stone-300 mb-8 leading-relaxed">
+                    Aprende Bluegrass, Old-time y Clawhammer desde cero. Lecciones detalladas, tablaturas y consejos técnicos para que tu música no tenga fronteras.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#lecciones" class="bg-wood-600 hover:bg-wood-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg">
+                        Empezar a Aprender
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Lecciones (Contenido Principal) -->
+    <section id="lecciones" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12 border-b border-stone-200 pb-8">
+            <div>
+                <h2 class="text-4xl font-bold text-stone-900">Lecciones Destacadas</h2>
+                <p class="text-stone-500 mt-2 text-lg">Tu camino paso a paso en el banjo de 5 cuerdas.</p>
+            </div>
+            <a href="#" class="text-wood-600 font-bold hover:underline mt-4 md:mt-0 inline-block">Ver todas las lecciones →</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Tarjeta 1 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-200 group hover:shadow-xl transition-all">
+                <div class="h-48 bg-stone-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1611956410501-9878d6d11017?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Banjo de cerca" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="text-xs font-bold text-wood-600 uppercase tracking-widest bg-wood-50 px-3 py-1 rounded-full">Nivel 1</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-3">Tu primera afinación</h3>
+                    <p class="text-stone-600 leading-relaxed mb-6">Aprende a usar la afinación en Sol abierto (G) y cómo usar el afinador electrónico correctamente.</p>
+                    <a href="#" class="font-bold text-stone-900 flex items-center group-hover:text-wood-600 transition-colors">
+                        Leer lección <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 2 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-200 group hover:shadow-xl transition-all">
+                <div class="h-48 bg-stone-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mano en el banjo" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="text-xs font-bold text-wood-600 uppercase tracking-widest bg-wood-50 px-3 py-1 rounded-full">Técnica</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-3">Rolls Básicos</h3>
+                    <p class="text-stone-600 leading-relaxed mb-6">El Forward Roll y el Alternating Roll: Los cimientos del estilo Scruggs explicados paso a paso.</p>
+                    <a href="#" class="font-bold text-stone-900 flex items-center group-hover:text-wood-600 transition-colors">
+                        Leer lección <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tarjeta 3 (Blog Post) -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-200 group hover:shadow-xl transition-all">
+                <div class="h-48 bg-stone-200 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1541190351052-67852c03c535?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Earl Scruggs Style" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="p-8">
+                    <span class="text-xs font-bold text-wood-600 uppercase tracking-widest bg-wood-50 px-3 py-1 rounded-full">Historia</span>
+                    <h3 class="text-2xl font-bold mt-4 mb-3">El Legado de Earl Scruggs</h3>
+                    <p class="text-stone-600 leading-relaxed mb-6">¿Por qué el estilo de tres dedos revolucionó la música americana? Un viaje a las raíces del bluegrass.</p>
+                    <a href="#" class="font-bold text-stone-900 flex items-center group-hover:text-wood-600 transition-colors">
+                        Leer artículo <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección IA (Como opción separada) -->
+    <section id="ai-opt" class="bg-stone-900 py-20 text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-block p-4 bg-wood-600/20 rounded-2xl mb-6">
+                <i class="fa-solid fa-sparkles text-wood-500 text-3xl"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 italic">¿Tienes dudas o necesitas una rutina?</h2>
+            <p class="text-stone-400 text-lg mb-10 leading-relaxed">
+                Hemos integrado un asistente de Inteligencia Artificial opcional para ayudarte a generar planes de estudio personalizados o responder dudas técnicas que no encuentres en el blog.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="#ai-tools" class="bg-wood-600 hover:bg-wood-500 text-white px-10 py-4 rounded-full font-bold text-lg shadow-xl transition-all hover:scale-105">
-                    Probar Herramientas IA ✨
-                </a>
-                <a href="#metodo" class="bg-white/10 hover:bg-white/20 text-white backdrop-blur-md px-10 py-4 rounded-full font-bold text-lg border border-white/30 transition-all">
-                    Ver Métodos
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- IA Tools Section -->
-    <section id="ai-tools" class="py-24 bg-white">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-wood-600 font-bold uppercase tracking-widest text-sm mb-2">Laboratorio Musical</h2>
-                <h3 class="text-4xl font-bold text-stone-900">Generador de Rutinas ✨</h3>
-                <div class="w-20 h-1.5 bg-wood-500 mx-auto mt-4 rounded-full"></div>
-                <p class="text-stone-600 mt-6 text-lg">Optimiza tu tiempo de estudio con un plan diseñado por IA según tu nivel y disponibilidad.</p>
-            </div>
-
-            <div class="bg-stone-50 p-10 rounded-[2.5rem] border border-stone-200 ai-glow shadow-inner">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                    <div>
-                        <label class="block text-sm font-bold text-stone-700 mb-3 ml-1">Mi Nivel Actual:</label>
-                        <select id="userLevel" class="w-full p-4 rounded-2xl border-stone-300 shadow-sm focus:ring-2 focus:ring-wood-500 focus:border-wood-500 bg-white outline-none transition-all">
-                            <option value="principiante absoluto">Principiante (Desde cero)</option>
-                            <option value="intermedio">Intermedio (Conozco acordes y rolls)</option>
-                            <option value="avanzado">Avanzado (Busco velocidad y improvisación)</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-sm font-bold text-stone-700 mb-3 ml-1">Tiempo para hoy:</label>
-                        <select id="userTime" class="w-full p-4 rounded-2xl border-stone-300 shadow-sm focus:ring-2 focus:ring-wood-500 focus:border-wood-500 bg-white outline-none transition-all">
-                            <option value="15 minutos">15 minutos (Sesión rápida)</option>
-                            <option value="30 minutos">30 minutos (Recomendado)</option>
-                            <option value="1 hora">1 hora (Estudio intensivo)</option>
-                        </select>
-                    </div>
-                </div>
-                <button onclick="generateRoutine()" id="routineBtn" class="w-full bg-stone-900 hover:bg-black text-white font-bold py-5 rounded-2xl transition-all flex items-center justify-center shadow-lg hover:shadow-wood-200">
-                    <span id="btnText">Generar mi Plan de Estudio ✨</span>
-                    <div id="loadingSpinner" class="hidden animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full ml-3"></div>
+                <button onclick="toggleAIChat()" class="bg-wood-600 hover:bg-wood-700 text-white px-10 py-4 rounded-2xl font-bold text-lg shadow-lg transition-all">
+                    Abrir Asistente Virtual ✨
                 </button>
-
-                <div id="routineOutput" class="mt-10 hidden animate-fade-in">
-                    <div class="bg-white p-8 rounded-3xl border border-wood-100 shadow-sm prose prose-stone max-w-none">
-                        <div class="flex items-center justify-between mb-6 border-b border-stone-100 pb-4">
-                            <h4 class="text-wood-800 font-bold text-xl flex items-center m-0">
-                                <i class="fa-solid fa-calendar-check mr-3"></i> Tu Rutina Personalizada
-                            </h4>
-                            <span class="text-xs font-bold px-3 py-1 bg-wood-50 text-wood-600 rounded-full uppercase tracking-tighter">Generado por Gemini</span>
-                        </div>
-                        <div id="routineText" class="text-stone-700 whitespace-pre-wrap leading-relaxed"></div>
-                    </div>
-                </div>
+                <button onclick="scrollToTop()" class="bg-transparent border border-white/20 hover:bg-white/10 px-10 py-4 rounded-2xl font-bold text-lg transition-all">
+                    Seguir leyendo el blog
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Métodos con Explicador -->
-    <section id="metodo" class="py-24 bg-stone-100">
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-stone-200 text-center">
         <div class="max-w-7xl mx-auto px-4">
-             <div class="text-center mb-16">
-                <h3 class="text-3xl font-bold text-stone-900">Conceptos Fundamentales</h3>
-                <p class="text-stone-500 mt-2">Haz clic para profundizar con nuestro asistente IA</p>
-             </div>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-stone-200 transition-all hover:border-wood-300 group">
-                    <div class="w-12 h-12 bg-wood-50 rounded-2xl flex items-center justify-center mb-6 text-wood-600 group-hover:bg-wood-600 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-fingerprint text-xl"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold mb-4">Técnica Scruggs</h4>
-                    <p class="text-stone-600 mb-6 leading-relaxed text-lg">La columna vertebral del bluegrass. Aprende a dominar los patrones de tres dedos que definen este sonido legendario.</p>
-                    <button onclick="askGemini('Explícame de forma muy sencilla qué es el Scruggs Style en el banjo y por qué es tan famoso.')" class="font-bold text-wood-600 hover:text-wood-800 flex items-center group-hover:translate-x-1 transition-transform">
-                        Preguntar a la IA sobre Scruggs <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </button>
-                </div>
-                <div class="bg-white p-10 rounded-3xl shadow-sm border border-stone-200 transition-all hover:border-wood-300 group">
-                    <div class="w-12 h-12 bg-wood-50 rounded-2xl flex items-center justify-center mb-6 text-wood-600 group-hover:bg-wood-600 group-hover:text-white transition-all">
-                        <i class="fa-solid fa-music text-xl"></i>
-                    </div>
-                    <h4 class="text-2xl font-bold mb-4">Estilo Melódico</h4>
-                    <p class="text-stone-600 mb-6 leading-relaxed text-lg">Explora la capacidad del banjo para tocar melodías nota por nota, rompiendo con los esquemas tradicionales de rolls.</p>
-                    <button onclick="askGemini('¿Cuál es la diferencia entre el estilo Scruggs y el estilo melódico en el banjo de 5 cuerdas?')" class="font-bold text-wood-600 hover:text-wood-800 flex items-center group-hover:translate-x-1 transition-transform">
-                        Comparar estilos con la IA <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
-                    </button>
-                </div>
-             </div>
+            <div class="flex justify-center items-center mb-6">
+                <i class="fa-solid fa-guitar text-wood-600 text-2xl mr-2"></i>
+                <span class="font-bold text-wood-900">Banjo en Español</span>
+            </div>
+            <p class="text-stone-500 text-sm">© 2024 La mayor comunidad de banjo en español. Creado por y para músicos.</p>
         </div>
-    </section>
+    </footer>
 
-    <!-- Chat Flotante de IA -->
+    <!-- Chat Flotante de IA (La opción) -->
     <div id="ai-chat-window" class="fixed bottom-6 right-6 w-[22rem] md:w-[26rem] bg-white rounded-[2rem] shadow-2xl border border-stone-200 z-[100] hidden flex flex-col overflow-hidden transition-all duration-300">
         <div class="bg-stone-900 p-5 text-white flex justify-between items-center shadow-lg">
             <div class="flex items-center">
                 <div class="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-                <span class="font-bold text-sm tracking-wide">Asistente Banjo IA ✨</span>
+                <span class="font-bold text-sm tracking-wide tracking-widest uppercase text-xs">Asistente de Banjo ✨</span>
             </div>
             <button onclick="toggleAIChat()" class="text-stone-400 hover:text-white transition-colors p-1">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
         </div>
-        <div id="chat-messages" class="h-80 overflow-y-auto p-5 space-y-4 bg-stone-50 scrollbar-hide">
-            <div class="bg-wood-100 text-wood-900 p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed border border-wood-200/50">
-                ¡Hola! Soy tu mentor virtual de <strong>Banjo en Español</strong>. ¿Qué necesitas aprender hoy sobre el instrumento?
+        
+        <div class="p-4 bg-stone-100 border-b border-stone-200">
+            <p class="text-[10px] font-bold text-stone-500 uppercase mb-2">Herramientas Rápidas:</p>
+            <div class="flex gap-2">
+                <button onclick="askGemini('Genérame una rutina de práctica de 20 minutos para nivel intermedio')" class="text-[10px] bg-white border border-stone-200 px-2 py-1 rounded-md hover:border-wood-600 transition-all">Generar Rutina</button>
+                <button onclick="askGemini('¿Cómo afinar un banjo de 5 cuerdas?')" class="text-[10px] bg-white border border-stone-200 px-2 py-1 rounded-md hover:border-wood-600 transition-all">Cómo Afinar</button>
             </div>
         </div>
+
+        <div id="chat-messages" class="h-80 overflow-y-auto p-5 space-y-4 bg-stone-50 scrollbar-hide">
+            <div class="bg-wood-100 text-wood-900 p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed border border-wood-200/50">
+                ¡Hola! Soy tu mentor virtual. ¿Tienes alguna duda técnica o quieres que diseñemos un plan de estudio para hoy?
+            </div>
+        </div>
+
         <div class="p-4 border-t bg-white flex gap-2">
-            <input type="text" id="chat-input" placeholder="Escribe tu duda técnica..." class="flex-1 text-sm border-stone-200 rounded-xl focus:ring-2 focus:ring-wood-500 focus:border-wood-500 outline-none p-3 px-4 transition-all" onkeypress="if(event.key==='Enter') sendChatMessage()">
+            <input type="text" id="chat-input" placeholder="Pregunta algo sobre técnica..." class="flex-1 text-sm border-stone-200 rounded-xl focus:ring-2 focus:ring-wood-500 focus:border-wood-500 outline-none p-3 px-4 transition-all" onkeypress="if(event.key==='Enter') sendChatMessage()">
             <button onclick="sendChatMessage()" class="bg-wood-600 text-white p-3 px-4 rounded-xl hover:bg-wood-700 transition-all shadow-md">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -202,12 +208,10 @@
     </div>
 
     <script>
-        // La API Key se proporciona automáticamente en el entorno de ejecución
         const apiKey = ""; 
 
         async function callGemini(prompt, systemPrompt = "Eres un experto profesor de banjo de 5 cuerdas.") {
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
-            
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
                 systemInstruction: { parts: [{ text: systemPrompt }] }
@@ -226,34 +230,7 @@
                     await new Promise(r => setTimeout(r, Math.pow(2, i) * 1000));
                 }
             }
-            return "Lo siento, la conexión con el servidor musical ha fallado. Revisa tu conexión.";
-        }
-
-        async function generateRoutine() {
-            const level = document.getElementById('userLevel').value;
-            const time = document.getElementById('userTime').value;
-            const btn = document.getElementById('routineBtn');
-            const spinner = document.getElementById('loadingSpinner');
-            const text = document.getElementById('btnText');
-            const output = document.getElementById('routineOutput');
-            const outputText = document.getElementById('routineText');
-
-            btn.disabled = true;
-            spinner.classList.remove('hidden');
-            text.innerText = "IA componiendo tu rutina...";
-
-            const prompt = `Crea una rutina de práctica de banjo técnica para un nivel ${level} que dure exactamente ${time}. Estructura la respuesta con: 1. Calentamiento (minutos), 2. Técnica de mano derecha e izquierda (minutos), 3. Aplicación en canciones o licks (minutos). Sé muy específico con ejercicios típicos de bluegrass.`;
-            
-            const result = await callGemini(prompt, "Eres un profesor de banjo metódico y motivador. Responde en español, usando términos técnicos correctos (rolls, hammer-ons, pull-offs).");
-
-            outputText.innerText = result;
-            output.classList.remove('hidden');
-            
-            btn.disabled = false;
-            spinner.classList.add('hidden');
-            text.innerText = "Generar mi Plan de Estudio ✨";
-            
-            window.scrollTo({ top: output.offsetTop - 120, behavior: 'smooth' });
+            return "Error de conexión con la IA musical.";
         }
 
         function toggleAIChat() {
@@ -270,7 +247,6 @@
             const query = input.value.trim();
             if(!query) return;
 
-            // User bubble
             const userMsg = document.createElement('div');
             userMsg.className = "bg-stone-200 text-stone-800 p-4 rounded-2xl rounded-tr-none text-sm self-end ml-10 shadow-sm";
             userMsg.innerText = query;
@@ -278,19 +254,17 @@
             input.value = "";
             container.scrollTop = container.scrollHeight;
 
-            // Loading bubble
             const loadingMsg = document.createElement('div');
             loadingMsg.id = "tmp-loading";
-            loadingMsg.className = "text-xs text-stone-400 italic pl-1";
-            loadingMsg.innerText = "Pensando respuesta...";
+            loadingMsg.className = "text-[10px] text-stone-400 italic pl-1";
+            loadingMsg.innerText = "Consultando con Earl Scruggs...";
             container.appendChild(loadingMsg);
 
-            const response = await callGemini(query, "Eres el asistente del blog 'Banjo en Español'. Responde dudas sobre técnica de banjo de 5 cuerdas, mantenimiento del instrumento o teoría musical. Sé breve, profesional y amigable.");
+            const response = await callGemini(query, "Eres el mentor de 'Banjo en Español'. Responde dudas técnicas de forma breve y didáctica.");
             
             const tmpLoading = document.getElementById('tmp-loading');
             if(tmpLoading) container.removeChild(tmpLoading);
 
-            // AI bubble
             const aiMsg = document.createElement('div');
             aiMsg.className = "bg-white text-stone-700 p-4 rounded-2xl rounded-tl-none text-sm mr-10 shadow-md border border-stone-100 leading-relaxed";
             aiMsg.innerText = response;
@@ -298,19 +272,20 @@
             container.scrollTop = container.scrollHeight;
         }
 
-        async function askGemini(question) {
-            if(document.getElementById('ai-chat-window').classList.contains('hidden')) {
-                toggleAIChat();
-            }
+        function askGemini(question) {
             const input = document.getElementById('chat-input');
             input.value = question;
             sendChatMessage();
         }
 
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) navbar.classList.add('shadow-md', 'py-1');
-            else navbar.classList.remove('shadow-md', 'py-1');
+            if (window.scrollY > 50) navbar.classList.add('shadow-md');
+            else navbar.classList.remove('shadow-md');
         });
     </script>
 </body>
