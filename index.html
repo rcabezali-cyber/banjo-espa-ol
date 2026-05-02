@@ -38,6 +38,9 @@
         }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .article-content img { border-radius: 1.5rem; margin: 2rem 0; width: 100%; object-fit: cover; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 1.5rem; margin: 2rem 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+        .placeholder-img { background: linear-gradient(135deg, #d97743 0%, #4a200e 100%); }
     </style>
 </head>
 <body class="bg-stone-50 text-stone-800 font-sans antialiased overflow-x-hidden">
@@ -52,13 +55,13 @@
                 </div>
                 
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#lecciones" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Lecciones</a>
-                    <a href="#blog" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Blog Completo</a>
+                    <a href="#inicio" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Inicio</a>
+                    <a href="#blog" class="text-stone-600 hover:text-wood-600 font-medium transition-colors">Blog</a>
                 </nav>
 
                 <div class="flex items-center space-x-4">
-                    <button onclick="toggleAIChat()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 px-4 py-2 rounded-full transition-all flex items-center font-bold text-xs border border-stone-200">
-                        <i class="fa-solid fa-sparkles mr-2 text-wood-500"></i> Ayuda IA
+                    <button onclick="toggleAIChat()" class="bg-stone-100 hover:bg-stone-200 text-stone-700 px-4 py-2 rounded-full transition-all flex items-center font-bold text-xs border border-stone-200 shadow-sm">
+                        <i class="fa-solid fa-sparkles mr-2 text-wood-500"></i> Consultar IA
                     </button>
                 </div>
             </div>
@@ -73,30 +76,30 @@
                     Cultura y <span class="text-wood-500 italic">Técnica</span>
                 </h1>
                 <p class="text-xl text-stone-300 mb-8 leading-relaxed max-w-2xl">
-                    El repositorio más grande de artículos sobre el banjo de 5 cuerdas en español. Desde la historia de los pioneros hasta el ajuste más fino de tu instrumento.
+                    Bienvenido a la versión mejorada de Banjo en Español. Todo el contenido de nuestro blog clásico, ahora con una experiencia de lectura moderna y tutoría por IA.
                 </p>
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
                     <a href="#blog" class="bg-wood-600 hover:bg-wood-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg">
-                        Explorar el Blog
+                        Ver Entradas del Blog
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Feed del Blog (Dinámico) -->
+    <!-- Feed del Blog -->
     <section id="blog" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center mb-16 gap-6">
                 <div>
-                    <h2 class="text-4xl font-bold text-stone-900 tracking-tight text-center md:text-left">Artículos y Guías</h2>
-                    <p class="text-stone-500 mt-2 text-lg text-center md:text-left">Explora nuestra biblioteca de conocimiento banjístico.</p>
+                    <h2 class="text-4xl font-bold text-stone-900 tracking-tight text-center md:text-left">El Blog Completo</h2>
+                    <p class="text-stone-500 mt-2 text-lg text-center md:text-left">Todas las entradas migradas desde Blogger.</p>
                 </div>
                 <div class="flex bg-stone-100 p-1.5 rounded-2xl border border-stone-200 overflow-x-auto max-w-full scrollbar-hide">
                     <button onclick="filterBlog('todos')" class="filter-btn px-6 py-2 rounded-xl text-sm font-bold bg-white shadow-sm text-wood-600 transition-all">Todos</button>
                     <button onclick="filterBlog('técnica')" class="filter-btn px-6 py-2 rounded-xl text-sm font-medium text-stone-500 hover:text-stone-700 transition-all">Técnica</button>
-                    <button onclick="filterBlog('historia')" class="filter-btn px-6 py-2 rounded-xl text-sm font-medium text-stone-500 hover:text-stone-700 transition-all">Historia</button>
-                    <button onclick="filterBlog('equipo')" class="filter-btn px-6 py-2 rounded-xl text-sm font-medium text-stone-500 hover:text-stone-700 transition-all">Equipo</button>
+                    <button onclick="filterBlog('lecciones')" class="filter-btn px-6 py-2 rounded-xl text-sm font-medium text-stone-500 hover:text-stone-700 transition-all">Lecciones</button>
+                    <button onclick="filterBlog('curiosidades')" class="filter-btn px-6 py-2 rounded-xl text-sm font-medium text-stone-500 hover:text-stone-700 transition-all">Curiosidades</button>
                 </div>
             </div>
 
@@ -107,7 +110,7 @@
         </div>
     </section>
 
-    <!-- Overlay del Lector de Artículos (Modal) -->
+    <!-- Overlay del Lector de Artículos -->
     <div id="article-reader" class="fixed inset-0 z-[60] bg-black/40 backdrop-blur-sm hidden flex justify-end">
         <div class="w-full md:w-2/3 lg:w-1/2 bg-white h-full shadow-2xl overflow-y-auto animate-slide-in relative">
             <button onclick="closeReader()" class="fixed top-6 right-6 z-50 bg-stone-900 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-wood-600 transition-all shadow-xl">
@@ -124,9 +127,9 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-center items-center mb-8">
                 <i class="fa-solid fa-guitar text-wood-500 text-3xl mr-3"></i>
-                <span class="text-2xl font-bold tracking-tighter">Banjo en Español</span>
+                <span class="text-2xl font-bold tracking-tighter uppercase">Banjo en Español</span>
             </div>
-            <p class="text-stone-500 text-sm">© 2024 El portal de referencia para músicos hispanos.</p>
+            <p class="text-stone-500 text-sm">© 2024 Portal independiente dedicado al banjo de 5 cuerdas.</p>
         </div>
     </footer>
 
@@ -135,7 +138,7 @@
         <div class="bg-stone-900 p-5 text-white flex justify-between items-center shadow-lg">
             <div class="flex items-center">
                 <div class="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
-                <span class="font-bold text-xs uppercase">Asistente Banjo IA</span>
+                <span class="font-bold text-xs uppercase tracking-widest">Tutor de Apoyo IA</span>
             </div>
             <button onclick="toggleAIChat()" class="text-stone-400 hover:text-white p-1">
                 <i class="fa-solid fa-xmark"></i>
@@ -143,11 +146,11 @@
         </div>
         <div id="chat-messages" class="h-80 overflow-y-auto p-5 space-y-4 bg-stone-50 scrollbar-hide">
             <div class="bg-wood-100 text-wood-900 p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed border border-wood-200/50">
-                ¡Hola! Si tienes dudas sobre los artículos o necesitas una explicación técnica extra, pregúntame.
+                ¡Hola! Puedo explicarte conceptos técnicos del blog o ayudarte con dudas de los videos. ¿En qué te ayudo hoy?
             </div>
         </div>
         <div class="p-4 border-t bg-white flex gap-2">
-            <input type="text" id="chat-input" placeholder="Pregunta algo..." class="flex-1 text-sm border-stone-200 rounded-xl focus:ring-1 focus:ring-wood-500 outline-none p-3 px-4" onkeypress="if(event.key==='Enter') sendChatMessage()">
+            <input type="text" id="chat-input" placeholder="Pregunta sobre una entrada..." class="flex-1 text-sm border-stone-200 rounded-xl focus:ring-1 focus:ring-wood-500 outline-none p-3 px-4" onkeypress="if(event.key==='Enter') sendChatMessage()">
             <button onclick="sendChatMessage()" class="bg-wood-600 text-white p-3 px-4 rounded-xl hover:bg-wood-700 transition-all">
                 <i class="fa-solid fa-paper-plane"></i>
             </button>
@@ -155,74 +158,102 @@
     </div>
 
     <script>
-        // --- BASE DE DATOS DEL BLOG ---
-        // Aquí puedes añadir todos los artículos que quieras de forma rápida
+        // --- BASE DE DATOS DEL BLOG (Migrada de Blogspot) ---
+        // Estructura: id, categoría, título, extracto, imagen (opcional), youtubeId (opcional), contenido HTML
         const blogPosts = [
             {
                 id: 1,
-                category: 'técnica',
-                title: 'Afinación en Sol Abierto (G)',
-                excerpt: 'La base de todo banjista. Aprende por qué afinamos así y cómo hacerlo con precisión.',
-                image: 'https://images.unsplash.com/photo-1611956410501-9878d6d11017?w=800&q=80',
+                category: 'lecciones',
+                title: 'Afinación y postura inicial',
+                excerpt: 'Comenzamos desde cero. Cómo sujetar el banjo y afinarlo en Sol abierto.',
+                image: '', // Sin imagen para probar el placeholder
+                youtubeId: 'S-76YpG-Wp0', // Ejemplo de ID de video
                 content: `
-                    <h2 class="text-3xl font-bold mb-6">Afinación en Sol Abierto</h2>
-                    <p class="mb-4">La afinación estándar del banjo de 5 cuerdas es gDGBD (Sol, Re, Sol, Si, Re). Lo maravilloso de esta configuración es que al tocar las cuerdas al aire, ya estamos produciendo un acorde de Sol mayor completo.</p>
-                    <p class="mb-4">Esto facilita enormemente el uso de los "rolls" o arpegios rápidos, permitiendo que las notas resuenen libremente.</p>
-                    <div class="bg-stone-100 p-6 rounded-2xl my-6">
-                        <h4 class="font-bold text-wood-600 mb-2">Consejo Pro:</h4>
-                        <p>Afina siempre de abajo hacia arriba para mantener la tensión de la clavija constante.</p>
-                    </div>
+                    <h2 class="text-3xl font-bold mb-6">Primeros Pasos en el Banjo</h2>
+                    <p class="mb-4 text-lg">Muchos alumnos preguntan cómo empezar. La respuesta siempre es la afinación. En el video de arriba te explico paso a paso cómo usar un afinador electrónico para llegar al Sol Abierto (gDGBD).</p>
+                    <p class="mb-4">Además, fíjate en la posición de mi espalda. Mantener el banjo inclinado unos 45 grados es clave para no cansar el brazo izquierdo.</p>
                 `
             },
             {
                 id: 2,
-                category: 'historia',
-                title: 'Earl Scruggs y el estilo de 3 dedos',
-                excerpt: 'La revolución que cambió el bluegrass para siempre en 1945.',
-                image: 'https://images.unsplash.com/photo-1541190351052-67852c03c535?w=800&q=80',
+                category: 'técnica',
+                title: 'El Roll Forward (Hacia adelante)',
+                excerpt: 'El patrón más importante del bluegrass. Tutorial paso a paso con video.',
+                image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&q=80',
+                youtubeId: 'qf_8E89G2L8', 
                 content: `
-                    <h2 class="text-3xl font-bold mb-6">El legado de Earl Scruggs</h2>
-                    <p class="mb-4">Antes de Earl Scruggs, el banjo se tocaba mayormente en estilo "clawhammer" o con dos dedos. Scruggs perfeccionó el uso de los tres dedos (pulgar, índice y medio) usando púas metálicas, lo que permitió una velocidad y claridad rítmica sin precedentes.</p>
-                    <p class="mb-4">Su debut en el Grand Ole Opry con los Blue Grass Boys de Bill Monroe es considerado el "big bang" del bluegrass moderno.</p>
+                    <h2 class="text-3xl font-bold mb-6">Dominando el Forward Roll</h2>
+                    <p class="mb-4 text-lg">El "Forward Roll" consiste en una secuencia de tres notas que se repite: Pulgar, Índice, Medio. Suena simple, pero la clave está en el acento rítmico.</p>
+                    <p class="mb-4 font-mono bg-stone-100 p-4 rounded-xl tracking-widest text-center">T - I - M - T - I - M - T - I</p>
+                    <p class="mb-4 text-lg text-stone-600 italic">Mira el video para ver el movimiento de mi mano derecha a cámara lenta.</p>
                 `
             },
             {
                 id: 3,
-                category: 'equipo',
-                title: 'Cómo elegir tus púas (Picks)',
-                excerpt: 'Metal vs Plástico. Todo lo que necesitas saber sobre el grosor y el material.',
-                image: 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&q=80',
+                category: 'curiosidades',
+                title: 'Historia del Banjo: De África a los Apalaches',
+                excerpt: 'Un viaje a través de los siglos para entender las raíces de nuestro instrumento.',
+                image: 'https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?w=800&q=80',
                 content: `
-                    <h2 class="text-3xl font-bold mb-6">El mundo de las púas</h2>
-                    <p class="mb-4">Para tocar estilo Scruggs necesitarás tres púas: una de plástico para el pulgar y dos de metal para los dedos índice y medio.</p>
-                    <p class="mb-4">Las púas de metal suelen venir en diferentes grosores (0.013 a 0.025 pulgadas). Las más finas son más cómodas para principiantes, pero las más gruesas ofrecen un tono más potente y con más cuerpo.</p>
+                    <h2 class="text-3xl font-bold mb-6">Raíces Ancestrales</h2>
+                    <p class="mb-4 text-lg text-stone-700">El banjo no es un instrumento originalmente americano. Sus ancestros, como el Akonting de Senegal o el Kora, fueron traídos por esclavos africanos al Caribe y luego a EE.UU.</p>
+                    <p class="mb-4 text-lg text-stone-700">Originalmente tenían calabazas como cuerpo y cuerdas de tripa. No fue hasta el siglo XIX que se le añadió el anillo de metal y la quinta cuerda corta tal como la conocemos hoy.</p>
+                `
+            },
+            {
+                id: 4,
+                category: 'técnica',
+                title: 'El ajuste del parche (Head Tension)',
+                excerpt: '¿Tu banjo suena apagado? Quizás necesites apretar los ganchos.',
+                image: '',
+                youtubeId: 'Z-B-O0G8Dlk',
+                content: `
+                    <h2 class="text-3xl font-bold mb-6">Mantenimiento Esencial</h2>
+                    <p class="mb-4 text-lg text-stone-700">La tensión del parche afecta directamente al brillo del sonido. Un parche flojo produce un sonido "tubular" y con poco sustain. Un parche demasiado apretado puede romperse o sonar metálico en exceso.</p>
+                    <div class="bg-wood-50 p-6 rounded-2xl border-l-4 border-wood-600">
+                        <p class="font-bold">Truco de taller:</p>
+                        <p>Intenta que la nota del parche al golpearlo sea aproximadamente un Sol# o un La.</p>
+                    </div>
                 `
             }
         ];
 
-        // --- RENDERIZADO DEL BLOG ---
+        // --- RENDERIZADO ---
         function renderBlog(category = 'todos') {
             const grid = document.getElementById('blog-grid');
             grid.innerHTML = '';
-            
-            const filtered = category === 'todos' 
-                ? blogPosts 
-                : blogPosts.filter(p => p.category === category);
+            const filtered = category === 'todos' ? blogPosts : blogPosts.filter(p => p.category === category);
 
             filtered.forEach(post => {
+                // Si no hay imagen, usamos un placeholder elegante
+                const mediaHtml = post.image 
+                    ? `<img src="${post.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">`
+                    : `<div class="w-full h-full placeholder-img flex items-center justify-center text-white">
+                        <div class="text-center p-6">
+                            <i class="fa-solid fa-guitar text-4xl mb-2 opacity-50"></i>
+                            <p class="text-xs font-bold uppercase tracking-widest">${post.category}</p>
+                        </div>
+                       </div>`;
+
                 const card = `
                     <div class="group cursor-pointer bg-white border border-stone-200 rounded-[2rem] overflow-hidden shadow-sm hover:shadow-xl transition-all" onclick="openReader(${post.id})">
-                        <div class="h-56 overflow-hidden relative">
-                            <img src="${post.image}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="h-56 overflow-hidden relative bg-stone-200">
+                            ${mediaHtml}
                             <div class="absolute top-4 left-4">
                                 <span class="bg-wood-600 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-tighter">${post.category}</span>
                             </div>
+                            ${post.youtubeId ? `
+                            <div class="absolute inset-0 flex items-center justify-center bg-black/10 group-hover:bg-black/0 transition-colors">
+                                <div class="bg-white/20 backdrop-blur-md p-4 rounded-full border border-white/40 shadow-lg">
+                                    <i class="fa-solid fa-play text-white text-xl"></i>
+                                </div>
+                            </div>` : ''}
                         </div>
                         <div class="p-8">
-                            <h3 class="text-2xl font-bold text-stone-900 group-hover:text-wood-600 transition-colors mb-3">${post.title}</h3>
-                            <p class="text-stone-500 line-clamp-3 mb-6 text-sm leading-relaxed">${post.excerpt}</p>
-                            <span class="text-stone-900 font-bold text-sm flex items-center">
-                                Leer más <i class="fa-solid fa-chevron-right ml-2 text-[10px]"></i>
+                            <h3 class="text-2xl font-bold text-stone-900 group-hover:text-wood-600 transition-colors mb-3 leading-tight">${post.title}</h3>
+                            <p class="text-stone-500 line-clamp-2 mb-6 text-sm leading-relaxed">${post.excerpt}</p>
+                            <span class="text-stone-900 font-bold text-sm flex items-center group-hover:translate-x-2 transition-transform">
+                                Leer entrada <i class="fa-solid fa-arrow-right-long ml-2 text-wood-500"></i>
                             </span>
                         </div>
                     </div>
@@ -234,27 +265,47 @@
         function filterBlog(cat) {
             renderBlog(cat);
             document.querySelectorAll('.filter-btn').forEach(btn => {
-                if(btn.innerText.toLowerCase() === cat.toLowerCase()) {
-                    btn.classList.add('bg-white', 'shadow-sm', 'text-wood-600');
-                    btn.classList.remove('text-stone-500');
-                } else {
-                    btn.classList.remove('bg-white', 'shadow-sm', 'text-wood-600');
-                    btn.classList.add('text-stone-500');
-                }
+                const isActive = btn.innerText.toLowerCase() === cat.toLowerCase();
+                btn.className = `filter-btn px-6 py-2 rounded-xl text-sm transition-all ${isActive ? 'font-bold bg-white shadow-sm text-wood-600' : 'font-medium text-stone-500 hover:text-stone-700'}`;
             });
         }
 
-        // --- LECTOR DE ARTÍCULOS ---
+        // --- LECTOR CON SOPORTE VIDEO ---
         function openReader(id) {
             const post = blogPosts.find(p => p.id === id);
             const content = document.getElementById('reader-content');
+            
+            let mediaSection = '';
+            if (post.youtubeId) {
+                mediaSection = `
+                    <div class="video-container shadow-2xl mb-10">
+                        <iframe src="https://www.youtube.com/embed/${post.youtubeId}" allowfullscreen></iframe>
+                    </div>
+                `;
+            } else if (post.image) {
+                mediaSection = `<img src="${post.image}" class="w-full h-80 object-cover rounded-[2.5rem] shadow-xl mb-10">`;
+            } else {
+                mediaSection = `<div class="w-full h-40 placeholder-img rounded-[2.5rem] mb-10 flex items-center justify-center text-white/50"><i class="fa-solid fa-guitar text-5xl"></i></div>`;
+            }
+
             content.innerHTML = `
-                <span class="text-wood-600 font-bold uppercase tracking-widest text-xs">${post.category}</span>
-                <div class="mt-4 mb-10">
-                    <img src="${post.image}" class="w-full h-80 object-cover rounded-[2.5rem] shadow-lg">
+                <div class="flex items-center gap-4 mb-2">
+                    <span class="text-wood-600 font-bold uppercase tracking-widest text-xs">${post.category}</span>
+                    <span class="text-stone-300">•</span>
+                    <span class="text-stone-400 text-xs">Entrada de Blog</span>
                 </div>
-                <div class="prose prose-stone max-w-none article-content">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-stone-900 mb-8 leading-tight">${post.title}</h1>
+                ${mediaSection}
+                <div class="prose prose-stone max-w-none article-content text-stone-700 leading-relaxed text-lg">
                     ${post.content}
+                </div>
+                <div class="mt-16 pt-8 border-t border-stone-100 flex justify-between items-center">
+                    <p class="text-stone-400 text-sm italic">¿Te ha servido esta entrada?</p>
+                    <div class="flex gap-4">
+                        <button class="text-stone-400 hover:text-wood-600"><i class="fa-brands fa-facebook-f"></i></button>
+                        <button class="text-stone-400 hover:text-wood-600"><i class="fa-brands fa-x-twitter"></i></button>
+                        <button class="text-stone-400 hover:text-wood-600"><i class="fa-solid fa-link"></i></button>
+                    </div>
                 </div>
             `;
             document.getElementById('article-reader').classList.remove('hidden');
@@ -264,16 +315,20 @@
         function closeReader() {
             document.getElementById('article-reader').classList.add('hidden');
             document.body.style.overflow = 'auto';
+            // Detener el video al cerrar (limpiando el contenido)
+            document.getElementById('reader-content').innerHTML = '';
         }
 
-        // --- IA CHAT (Soporte) ---
+        // --- IA CHAT ---
         const apiKey = ""; 
         async function callGemini(prompt, systemPrompt) {
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
             const payload = { contents: [{ parts: [{ text: prompt }] }], systemInstruction: { parts: [{ text: systemPrompt }] } };
-            const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
-            const data = await response.json();
-            return data.candidates?.[0]?.content?.parts?.[0]?.text;
+            try {
+                const response = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
+                const data = await response.json();
+                return data.candidates?.[0]?.content?.parts?.[0]?.text;
+            } catch (e) { return "Lo siento, ahora mismo no puedo responder."; }
         }
 
         function toggleAIChat() { document.getElementById('ai-chat-window').classList.toggle('hidden'); }
@@ -285,27 +340,26 @@
             if(!query) return;
 
             const userMsg = document.createElement('div');
-            userMsg.className = "bg-stone-100 text-stone-800 p-3 rounded-2xl rounded-tr-none text-sm self-end ml-10 border border-stone-200";
+            userMsg.className = "bg-stone-100 text-stone-800 p-4 rounded-2xl rounded-tr-none text-sm self-end ml-10 border border-stone-200 shadow-sm";
             userMsg.innerText = query;
             container.appendChild(userMsg);
             input.value = "";
             container.scrollTop = container.scrollHeight;
 
-            const response = await callGemini(query, "Eres un profesor de banjo experto. Ayuda a los lectores del blog con sus dudas técnicas de forma amable.");
+            const response = await callGemini(query, "Eres un profesor de banjo experto en la técnica de 5 cuerdas. Ayuda a los lectores con sus dudas técnicas basadas en los contenidos del blog de forma breve y cercana.");
             const aiMsg = document.createElement('div');
-            aiMsg.className = "bg-white text-stone-700 p-3 rounded-2xl rounded-tl-none text-sm mr-10 shadow-sm border border-stone-100";
+            aiMsg.className = "bg-white text-stone-700 p-4 rounded-2xl rounded-tl-none text-sm mr-10 shadow-sm border border-stone-100 leading-relaxed";
             aiMsg.innerText = response;
             container.appendChild(aiMsg);
             container.scrollTop = container.scrollHeight;
         }
 
-        // Iniciar
-        renderBlog();
+        window.onload = renderBlog;
     </script>
 
     <style>
-        @keyframes slideIn { from { transform: translateX(100%); } to { transform: translateX(0); } }
-        .animate-slide-in { animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+        .animate-slide-in { animation: slideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
     </style>
 </body>
 </html>
